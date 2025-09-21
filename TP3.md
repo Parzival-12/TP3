@@ -1686,3 +1686,16 @@ Created symlink /etc/systemd/system/multi-user.target.wants/vxlan.service → /e
 [root@kvm1 ~]# sudo systemctl start vxlan.service
 [root@kvm1 ~]#
 ```
+1. Ajout d'un noeud¶
+🌞 Setup de kvm2.one, à l'identique de kvm1.one excepté :
+
+une autre IP statique bien sûr
+idem, pour le bridge, donnez-lui l'IP 10.220.220.202/24 (celle qui est juste après l'IP du bridge de kvm1)
+```
+4: vxlan_bridge: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether b6:07:0c:95:27:ea brd ff:ff:ff:ff:ff:ff
+    inet 10.220.220.202/24 scope global vxlan_bridge
+       valid_lft forever preferred_lft forever
+    inet6 fe80::b407:cff:fe95:27ea/64 scope link
+       valid_lft forever preferred_lft forever
+```
